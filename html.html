@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+
+    <script>
+        // Sample arrays for demonstration
+        const numbers = [1, 2, 3, 4, 5];
+        const mixedNumbers = [10, 25, -5, 100, 50];
+        const strings = ["Hello", "World", "JavaScript"];
+        const htmlElements = [document.createElement('div'), document.createElement('span'), document.createElement('p')];
+        const students = [{ name: "Alice", score: 75 }, { name: "Bob", score: 82 }];
+        
+        // 1. Sum: Calculate the sum of numbers in the array
+        const sum = numbers.reduce((acc, num) => acc + num, 0);
+        console.log("Sum of numbers:", sum);
+
+        // 2. Highest Number: Find the highest number in the array
+        const highest = mixedNumbers.reduce((acc, num) => acc > num ? acc : num, mixedNumbers[0]);
+        console.log("Highest number:", highest);
+
+        // 4. Concatenation of strings: Concatenate strings in the array into one string
+        const concatenated = strings.reduce((acc, str) => acc + " " + str);
+        console.log("Concatenated strings:", concatenated);
+
+        // 5. Multiplication of numbers: Multiply the numbers in the array
+        const product = numbers.reduce((acc, num) => acc * num, 1);
+        console.log("Product of numbers:", product);
+
+        // 7. Difference of numbers: Calculate the difference of numbers in the array
+        const difference = numbers.reduce((acc, num) => acc - num);
+        console.log("Difference of numbers:", difference);
+
+        // 8. Double values: Multiply each number by two using map
+        const doubled = numbers.map(num => num * 2);
+        console.log("Doubled values:", doubled);
+
+        // 9. Replace strings: Convert each string to lowercase
+        const lowercasedStrings = strings.map(str => str.toLowerCase());
+        console.log("Lowercased strings:", lowercasedStrings);
+
+        // 11. DOM manipulation: Add text to each HTML element using map
+        htmlElements.map((el, index) => el.innerText = `Element ${index + 1}`);
+        console.log("Updated HTML elements:", htmlElements);
+
+        // 12. Squares of numbers: Square each number in the array
+        const squared = numbers.map(num => num ** 2);
+        console.log("Squared numbers:", squared);
+
+        // 13. Fetching DOM elements: Add text to each HTML element using forEach
+        htmlElements.forEach((el, index) => el.innerText = `Updated Element ${index + 1}`);
+        console.log("Fetched and updated HTML elements:", htmlElements);
+
+        // 14. Score Increment: Add 5 points to each student's score
+        students.forEach(student => student.score += 5);
+        console.log("Students with updated scores:", students);
+
+        // 16. Reverse numbers: Return the array in reverse order using a for loop
+        const reversed = [];
+        for (let i = numbers.length - 1; i >= 0; i--) {
+            reversed.push(numbers[i]);
+        }
+        console.log("Reversed numbers:", reversed);
+
+        // 17. Creating the DOM: Create div elements from an array and log to console
+        const divElements = numbers.map(num => {
+            const div = document.createElement('div');
+            div.innerText = `Div with number ${num}`;
+            return div;
+        });
+        console.log("Created div elements:", divElements);
+
+        // 18. Table output: Output the multiplication table of each number
+        numbers.forEach(num => {
+            console.log(`Multiplication table for ${num}:`);
+            for (let i = 1; i <= 10; i++) {
+                console.log(`${num} x ${i} = ${num * i}`);
+            }
+        });
+
+        // 19. Filtering numbers: Return only numbers greater than 10
+        const greaterThanTen = mixedNumbers.filter(num => num > 10);
+        console.log("Numbers greater than 10:", greaterThanTen);
+
+        // 20. Filtering DOM elements: Return only elements with a specific CSS class
+        htmlElements[0].classList.add("special");
+        const filteredElements = htmlElements.filter(el => el.classList.contains("special"));
+        console.log("Filtered elements with 'special' class:", filteredElements);
+    </script>
+</body>
+</html>
